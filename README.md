@@ -1,6 +1,6 @@
 # 🌍 TRACKER IP - by sentinelzxofc
 
-![Banner do Projeto](https://iili.io/2ZR4Of1.jpg)
+![Banner do Projeto](https://iili.io/2ZRZpaI.jpg)
 
 **Tracker IP** é uma ferramenta poderosa e intuitiva para rastrear e analisar endereços IP. Desenvolvido por [sentinelzxofc](https://github.com/sentinelzxofc), este projeto oferece uma variedade de funcionalidades para explorar informações geográficas, verificar portas abertas, realizar pings, converter IPs e muito mais. Tudo isso em uma interface simples e amigável!
 
@@ -52,7 +52,7 @@ Os resultados serão exibidos em tempo real na tela, com informações detalhada
 
 ## 📸 Capturas de Tela
 
-![Interface do Tracker IP](https://iili.io/2ZR4Of1.jpg)
+![Interface do Tracker IP](https://iili.io/2ZRZpaI.jpg)
 
 ---
 
