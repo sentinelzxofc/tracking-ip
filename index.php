@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRACKER IP - by sentinelzxofc</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>TRACKER IP - by sentinelzxofc</h1>
+    </header>
+
+    <!-- Container com dados do usuário -->
+    <div id="user-info">
+        <h2>Seus Dados</h2>
+        <p><strong>IP:</strong> <span id="user-ip">Carregando...</span></p>
+        <p><strong>Localização:</strong> <span id="user-location">Carregando...</span></p>
+        <p><strong>Provedor:</strong> <span id="user-isp">Carregando...</span></p>
+    </div>
+
+    <main>
+        <section id="ip-functions">
+            <h2>Funções de IP</h2>
+
+            <!-- Função 1: Localização por IP -->
+            <div class="function">
+                <h3>1. Localização por IP</h3>
+                <p>Descubra a localização geográfica de um IP.</p>
+                <input type="text" id="ip-location" placeholder="Digite o IP">
+                <button onclick="getLocation()">Localizar</button>
+                <div id="location-result" class="result">
+                    <div class="loader" id="location-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 2: Verificar IP Público ou Privado -->
+            <div class="function">
+                <h3>2. Verificar IP Público ou Privado</h3>
+                <p>Verifique se o IP é público ou privado.</p>
+                <input type="text" id="ip-public-private" placeholder="Digite o IP">
+                <button onclick="checkPublicPrivate()">Verificar</button>
+                <div id="public-private-result" class="result">
+                    <div class="loader" id="public-private-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 3: Ping de IP -->
+            <div class="function">
+                <h3>3. Ping de IP</h3>
+                <p>Realize um ping para verificar a latência do IP.</p>
+                <input type="text" id="ip-ping" placeholder="Digite o IP">
+                <button onclick="pingIP()">Ping</button>
+                <div id="ping-result" class="result">
+                    <div class="loader" id="ping-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 4: Verificação de Portas Abertas -->
+            <div class="function">
+                <h3>4. Verificação de Portas Abertas</h3>
+                <p>Verifique se uma porta específica está aberta no IP.</p>
+                <input type="text" id="ip-port-scan" placeholder="Digite o IP">
+                <input type="text" id="port-scan" placeholder="Digite a Porta">
+                <button onclick="scanPort()">Verificar</button>
+                <div id="port-scan-result" class="result">
+                    <div class="loader" id="port-scan-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 5: Conversão de IP -->
+            <div class="function">
+                <h3>5. Conversão de IP</h3>
+                <p>Converta o IP para Binário ou Hexadecimal.</p>
+                <input type="text" id="ip-convert" placeholder="Digite o IP">
+                <button onclick="convertIP('binary')">Binário</button>
+                <button onclick="convertIP('hex')">Hexadecimal</button>
+                <div id="convert-result" class="result">
+                    <div class="loader" id="convert-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 6: Calculadora de Sub-rede -->
+            <div class="function">
+                <h3>6. Calculadora de Sub-rede</h3>
+                <p>Calcule sub-redes e máscaras.</p>
+                <input type="text" id="ip-subnet" placeholder="Digite o IP">
+                <input type="text" id="subnet-mask" placeholder="Digite a Máscara">
+                <button onclick="calculateSubnet()">Calcular</button>
+                <div id="subnet-result" class="result">
+                    <div class="loader" id="subnet-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 7: Verificação de IPv4 ou IPv6 -->
+            <div class="function">
+                <h3>7. Verificação de IPv4 ou IPv6</h3>
+                <p>Identifique se o IP é IPv4 ou IPv6.</p>
+                <input type="text" id="ip-version" placeholder="Digite o IP">
+                <button onclick="checkIPVersion()">Verificar</button>
+                <div id="ip-version-result" class="result">
+                    <div class="loader" id="ip-version-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 8: Validação de IP -->
+            <div class="function">
+                <h3>8. Validação de IP</h3>
+                <p>Verifique se o IP é válido.</p>
+                <input type="text" id="ip-validate" placeholder="Digite o IP">
+                <button onclick="validateIP()">Validar</button>
+                <div id="validate-result" class="result">
+                    <div class="loader" id="validate-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 9: Geolocalização em Mapa -->
+            <div class="function">
+                <h3>9. Geolocalização em Mapa</h3>
+                <p>Mostre a localização do IP em um mapa.</p>
+                <input type="text" id="ip-map" placeholder="Digite o IP">
+                <button onclick="showMap()">Mostrar Mapa</button>
+                <div id="map" style="height: 300px; margin-top: 10px;">
+                    <div class="loader" id="map-loader"></div>
+                </div>
+            </div>
+
+            <!-- Função 10: Histórico de Consultas -->
+            <div class="function">
+                <h3>10. Histórico de Consultas</h3>
+                <p>Veja o histórico de consultas de IP.</p>
+                <input type="text" id="ip-history" placeholder="Digite o IP">
+                <button onclick="getIPHistory()">Consultar</button>
+                <div id="history-result" class="result">
+                    <div class="loader" id="history-loader"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TRACKER IP - by sentinelzxofc</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
